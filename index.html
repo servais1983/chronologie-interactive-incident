@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronologie Interactive d'Incident</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Vis.js Timeline - CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i>
+            <h1>Chronologie Interactive d'Incident</h1>
+        </div>
+        <nav>
+            <button id="newIncident"><i class="fas fa-plus"></i> Nouveau</button>
+            <button id="saveIncident"><i class="fas fa-save"></i> Sauvegarder</button>
+            <button id="exportIncident"><i class="fas fa-file-export"></i> Exporter</button>
+            <button id="importIncident"><i class="fas fa-file-import"></i> Importer</button>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="sidebar">
+            <div class="incident-info">
+                <h2>Informations de l'incident</h2>
+                <div class="info-form">
+                    <div class="form-group">
+                        <label for="incidentName">Nom de l'incident</label>
+                        <input type="text" id="incidentName" placeholder="Ex: Intrusion Réseau - Mars 2025">
+                    </div>
+                    <div class="form-group">
+                        <label for="incidentRef">Référence</label>
+                        <input type="text" id="incidentRef" placeholder="Ex: INC-2025-0123">
+                    </div>
+                    <div class="form-group">
+                        <label for="incidentDate">Date de détection</label>
+                        <input type="date" id="incidentDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="incidentAnalyst">Analyste</label>
+                        <input type="text" id="incidentAnalyst" placeholder="Nom de l'analyste">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-list">
+                <h2>Événements <button id="addEvent"><i class="fas fa-plus"></i></button></h2>
+                <div id="eventListContainer">
+                    <!-- Liste des événements sera ajoutée ici dynamiquement -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline-container">
+            <div id="timeline"></div>
+        </div>
+        
+        <div id="eventModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Ajouter un événement</h2>
+                <form id="eventForm">
+                    <div class="form-group">
+                        <label for="eventTitle">Titre</label>
+                        <input type="text" id="eventTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate">Date et heure</label>
+                        <input type="datetime-local" id="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventCategory">Catégorie</label>
+                        <select id="eventCategory">
+                            <option value="reconnaisance">Reconnaissance</option>
+                            <option value="initialAccess">Accès Initial</option>
+                            <option value="execution">Exécution</option>
+                            <option value="persistence">Persistance</option>
+                            <option value="privilegeEscalation">Élévation de Privilèges</option>
+                            <option value="defensEvasion">Évasion Défensive</option>
+                            <option value="credentialAccess">Accès aux Identifiants</option>
+                            <option value="discovery">Découverte</option>
+                            <option value="lateralMovement">Mouvement Latéral</option>
+                            <option value="collection">Collection</option>
+                            <option value="exfiltration">Exfiltration</option>
+                            <option value="impact">Impact</option>
+                            <option value="response">Réponse</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventSources">Sources</label>
+                        <textarea id="eventSources" rows="2" placeholder="Logs, captures d'écran, mails, etc."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventConfidence">Niveau de confiance</label>
+                        <select id="eventConfidence">
+                            <option value="high">Élevé</option>
+                            <option value="medium">Moyen</option>
+                            <option value="low">Faible</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Sauvegarder</button>
+                        <button type="button" class="cancel">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Chronologie Interactive d'Incident | <a href="https://github.com/servais1983/chronologie-interactive-incident" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
