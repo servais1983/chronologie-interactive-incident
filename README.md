@@ -12,12 +12,35 @@ Outil de visualisation de timeline d'attaques avec capacité d'ajouter des élé
 
 ## Installation
 
+### Méthode 1 : Avec npm (recommandée)
+
 ```bash
+# Cloner le dépôt
 git clone https://github.com/servais1983/chronologie-interactive-incident.git
+
+# Accéder au répertoire
 cd chronologie-interactive-incident
+
+# Installer les dépendances
 npm install
+
+# Démarrer l'application
 npm start
 ```
+
+L'application sera disponible à l'adresse [http://localhost:3000](http://localhost:3000)
+
+### Méthode 2 : Sans npm (ouvrir directement dans le navigateur)
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/servais1983/chronologie-interactive-incident.git
+
+# Accéder au répertoire
+cd chronologie-interactive-incident
+```
+
+Ouvrez simplement le fichier `index.html` dans votre navigateur.
 
 ## Utilisation
 
@@ -26,12 +49,28 @@ npm start
 3. Organisez et catégorisez les événements
 4. Exportez ou partagez votre chronologie
 
+Pour plus de détails, consultez le [Guide d'utilisation](GUIDE_UTILISATION.md).
+
 ## Technologies
 
 - HTML5, CSS3, JavaScript
-- Framework : React.js
+- Framework serveur : Express.js (optionnel, pour le mode npm)
 - Bibliothèque de visualisation : vis-timeline
-- Stockage : IndexedDB (local) / Firebase (option cloud)
+- Stockage : localStorage (client-side)
+
+## Documentation
+
+- [Guide d'utilisation](GUIDE_UTILISATION.md) - Instructions détaillées pour utiliser l'application
+- [Guide d'installation](INSTALL.md) - Instructions d'installation avancées et de configuration
+
+## Exemple d'incident
+
+Un exemple de fichier d'incident est inclus dans le dépôt : [example-incident.json](example-incident.json)
+
+Pour le charger :
+1. Démarrez l'application
+2. Cliquez sur "Importer"
+3. Sélectionnez le fichier example-incident.json
 
 ## Contribution
 
