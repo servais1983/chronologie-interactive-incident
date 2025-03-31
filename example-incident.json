@@ -1,0 +1,140 @@
+{
+  "id": "f5a8c123-4567-89ab-cdef-0123456789ab",
+  "name": "Intrusion par Ransomware - Mars 2025",
+  "reference": "INC-2025-0042",
+  "date": "2025-03-15",
+  "analyst": "Jean Dupont",
+  "events": [
+    {
+      "id": "evt-001",
+      "title": "Multiples tentatives de connexion échouées",
+      "start": "2025-03-14T08:25:00.000Z",
+      "category": "reconnaisance",
+      "description": "Détection de multiples tentatives de connexion échouées sur le serveur VPN depuis des adresses IP suspectes. Plus de 1000 tentatives en 2 heures.",
+      "sources": "Logs VPN, IDS alerts",
+      "confidence": "high",
+      "createdAt": "2025-03-15T10:00:00.000Z"
+    },
+    {
+      "id": "evt-002",
+      "title": "Connexion VPN réussie",
+      "start": "2025-03-14T10:42:15.000Z",
+      "category": "initialAccess",
+      "description": "Connexion VPN réussie depuis l'adresse IP 203.0.113.42 avec les identifiants d'un utilisateur du service commercial dont le compte avait été compromis via phishing.",
+      "sources": "Logs VPN, entretien avec l'utilisateur",
+      "confidence": "high",
+      "createdAt": "2025-03-15T10:15:00.000Z"
+    },
+    {
+      "id": "evt-003",
+      "title": "Accès au serveur de fichiers",
+      "start": "2025-03-14T10:55:30.000Z",
+      "category": "discovery",
+      "description": "L'attaquant a accédé au serveur de fichiers et a listé les partages réseau disponibles.",
+      "sources": "Logs Windows Event, EDR alerts",
+      "confidence": "medium",
+      "createdAt": "2025-03-15T10:25:00.000Z"
+    },
+    {
+      "id": "evt-004",
+      "title": "Élévation de privilèges",
+      "start": "2025-03-14T11:15:45.000Z",
+      "category": "privilegeEscalation",
+      "description": "Exploitation d'une vulnérabilité locale (CVE-2024-XXXX) pour obtenir des privilèges administrateur sur le serveur de fichiers.",
+      "sources": "Logs EDR, analyse mémoire",
+      "confidence": "medium",
+      "createdAt": "2025-03-15T11:00:00.000Z"
+    },
+    {
+      "id": "evt-005",
+      "title": "Déploiement d'un outil d'extraction de mots de passe",
+      "start": "2025-03-14T11:30:20.000Z",
+      "category": "credentialAccess",
+      "description": "Utilisation de Mimikatz pour extraire les identifiants en mémoire sur plusieurs serveurs.",
+      "sources": "Logs EDR, analyse mémoire, fichiers malveillants récupérés",
+      "confidence": "high",
+      "createdAt": "2025-03-15T11:15:00.000Z"
+    },
+    {
+      "id": "evt-006",
+      "title": "Mouvement latéral vers le contrôleur de domaine",
+      "start": "2025-03-14T13:10:05.000Z",
+      "category": "lateralMovement",
+      "description": "Utilisation des identifiants volés pour accéder au contrôleur de domaine via PSExec.",
+      "sources": "Logs Windows Event, EDR alerts",
+      "confidence": "high",
+      "createdAt": "2025-03-15T11:30:00.000Z"
+    },
+    {
+      "id": "evt-007",
+      "title": "Extraction des identifiants du domaine",
+      "start": "2025-03-14T14:05:30.000Z",
+      "category": "credentialAccess",
+      "description": "Dump de la base NTDS.dit contenant tous les hachages de mots de passe du domaine.",
+      "sources": "Logs Windows Event, analyse forensique",
+      "confidence": "high",
+      "createdAt": "2025-03-15T12:00:00.000Z"
+    },
+    {
+      "id": "evt-008",
+      "title": "Désactivation de l'antivirus",
+      "start": "2025-03-14T15:20:15.000Z",
+      "category": "defensEvasion",
+      "description": "Désactivation des solutions de sécurité sur plusieurs serveurs critiques via GPO.",
+      "sources": "Logs Windows Event, témoignage admin système",
+      "confidence": "high",
+      "createdAt": "2025-03-15T14:00:00.000Z"
+    },
+    {
+      "id": "evt-009",
+      "title": "Déploiement du ransomware",
+      "start": "2025-03-14T23:45:10.000Z",
+      "category": "impact",
+      "description": "Déploiement du ransomware MaliciousCrypt via PsExec et GPO sur l'ensemble du parc informatique.",
+      "sources": "Logs Windows Event, analyse des fichiers, ransom note",
+      "confidence": "high",
+      "createdAt": "2025-03-15T14:30:00.000Z"
+    },
+    {
+      "id": "evt-010",
+      "title": "Chiffrement des données",
+      "start": "2025-03-15T00:15:00.000Z",
+      "category": "impact",
+      "description": "Chiffrement des données sur plus de 200 serveurs et 500 postes de travail. Extension .encrypted ajoutée aux fichiers.",
+      "sources": "Analyse des fichiers chiffrés, logs",
+      "confidence": "high",
+      "createdAt": "2025-03-15T15:00:00.000Z"
+    },
+    {
+      "id": "evt-011",
+      "title": "Détection de l'incident",
+      "start": "2025-03-15T05:30:00.000Z",
+      "category": "response",
+      "description": "Découverte de l'incident par l'équipe de support lors de la prise de service. Alerte remontée à la DSSI.",
+      "sources": "Tickets d'incident, témoignages",
+      "confidence": "high",
+      "createdAt": "2025-03-15T15:30:00.000Z"
+    },
+    {
+      "id": "evt-012",
+      "title": "Isolation du réseau",
+      "start": "2025-03-15T06:45:00.000Z",
+      "category": "response",
+      "description": "Coupure des connexions externes et isolation des systèmes critiques non impactés.",
+      "sources": "Logs firewall, documentation de crise",
+      "confidence": "high",
+      "createdAt": "2025-03-15T16:00:00.000Z"
+    },
+    {
+      "id": "evt-013",
+      "title": "Début de l'investigation",
+      "start": "2025-03-15T08:00:00.000Z",
+      "category": "response",
+      "description": "Début de l'investigation forensique et analyse des IoC.",
+      "sources": "Documentation de crise, rapports d'analyse",
+      "confidence": "high",
+      "createdAt": "2025-03-15T16:15:00.000Z"
+    }
+  ],
+  "exportDate": "2025-03-31T10:00:00.000Z"
+}
