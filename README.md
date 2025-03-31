@@ -10,6 +10,16 @@ Outil de visualisation de timeline d'attaques avec capacité d'ajouter des élé
 - Export et partage de la chronologie
 - Interface intuitive adaptée aux analystes de sécurité
 
+## Prérequis
+
+- **Pour l'exécution avec npm (recommandé)** :
+  - Node.js (version 14 ou supérieure)
+  - npm (généralement installé avec Node.js)
+  - Un navigateur web moderne
+
+- **Pour l'exécution sans npm** :
+  - Un navigateur web moderne
+
 ## Installation
 
 ### Méthode 1 : Avec npm (recommandée)
@@ -62,6 +72,11 @@ Pour plus de détails, consultez le [Guide d'utilisation](GUIDE_UTILISATION.md).
 
 - [Guide d'utilisation](GUIDE_UTILISATION.md) - Instructions détaillées pour utiliser l'application
 - [Guide d'installation](INSTALL.md) - Instructions d'installation avancées et de configuration
+- [Guide de dépannage](TROUBLESHOOTING.md) - Solutions aux problèmes courants d'installation et de configuration
+
+## Spécifique à la plateforme
+
+Des instructions détaillées pour Windows et Linux sont disponibles dans le [Guide de dépannage](TROUBLESHOOTING.md).
 
 ## Exemple d'incident
 
@@ -71,6 +86,14 @@ Pour le charger :
 1. Démarrez l'application
 2. Cliquez sur "Importer"
 3. Sélectionnez le fichier example-incident.json
+
+## Résolution de problèmes
+
+Si vous rencontrez des problèmes lors de l'installation ou de l'utilisation :
+
+1. Consultez le [Guide de dépannage](TROUBLESHOOTING.md) qui couvre les problèmes les plus courants
+2. Vérifiez les [issues GitHub](https://github.com/servais1983/chronologie-interactive-incident/issues)
+3. Créez une nouvelle issue si votre problème n'est pas répertorié
 
 ## Contribution
 
